@@ -16,7 +16,17 @@ public:
     {
         _checkSaveTimer = 0;
     }
-
+	void OnPlayerLogin(Player* player) override
+    {
+        if (sConfigMgr->GetOption<bool>("ModSaveInventory.AnnounceEnable", true))
+        {
+			uint32 loc = player->GetSession()->GetSessionDbLocaleIndex();
+            if (loc == 4)
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00本服务端已加载|r |cff00ccff物品保存|r |cff00ff00模块.|r");
+            else
+				ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00SaveInventory |rmodule.");
+        }
+    }
     void OnPlayerLootItem(Player* player, Item* item, uint32 /*count*/, ObjectGuid /*lootguid*/) override
     {
         if (!item)

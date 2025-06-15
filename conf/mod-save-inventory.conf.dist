@@ -17,6 +17,15 @@
 ModSaveInventory.Enable = 1
 
 #
+#    ModSaveInventory.AnnounceEnable
+#        Description: Enables Announce the module.
+#        Default:     1 - Enabled
+#                     0 - Disabled
+#
+
+ModSaveInventory.AnnounceEnable = 1
+
+#
 #
 #    ModSaveInventory.MinItemQuality
 #        Description: Minimum quality required to save items after looting.
